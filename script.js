@@ -57,19 +57,19 @@ const shoesData = [
     {
         name: "Boho Skaters",
         price: "R1000.00",
-        sizes: "4 5",
+        sizes: "4 5 6",
         imageSrc: "./public/shoe_seven.jpeg"
     },
     {
         name: "Barbie Courts",
         price: "R1000.00",
-        sizes: "6 7",
+        sizes: "6 7 8",
         imageSrc: "./public/pp.jpg"
     },
     {
         name: "Block heel Sandal",
         price: "R199.99",
-        sizes: "5 7",
+        sizes: "5 6 7",
         imageSrc: "./public/ddd.jpg"
     },
 ];
