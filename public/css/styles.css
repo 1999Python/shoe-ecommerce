@@ -1,3 +1,4 @@
+
 /*Shoes*/
 .card {
     position: relative;
@@ -129,8 +130,7 @@
   }
 
   /*Navbar*/
-  /* Add this CSS to your styles.css */
-
+ 
 .cart-navbar {
     background-color: #333;
     color: #fff;
@@ -138,6 +138,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 
 .cart-navbar ul {
@@ -232,3 +233,80 @@
 #about a:hover {
     color: #e04111; /* Link color on hover */
 }
+
+/*Contact*/
+.contact-section {
+  background-color: #f0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-heading {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.contact-social-icons {
+  margin-top: 15px;
+}
+
+.contact-social-icons a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.contact-social-icons a:hover {
+  color: #ff5722;
+}
+
+/*Top button*/
+.topBtn {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.4em 0.6em;
+  border: 2px solid #7f8d67;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  color: #d483a8;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+.topBtn:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #FF0072;
+  z-index: -1;
+}
+
+.topBtn:hover, .topBtn:focus {
+  color: white;
+}
+
+.topBtn:hover:before, .topBtn:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.topBtn:active {
+  transform: scale(0.9);
+}
+
+
+
+
