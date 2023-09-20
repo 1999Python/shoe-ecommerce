@@ -3,62 +3,74 @@ const shoesData = [
     {
         name: "Luella Crystal",
         price: "R668.88",
-        imageSrc: "shoe.jpeg"
+        sizes: "4 5",
+        imageSrc: "./public/shoe.jpeg"
     },
     {
         name: "Sudded Stappy",
         price: "R789.50",
-        imageSrc: "amaze.jpeg"
+        sizes: "4 5",
+        imageSrc: "./public/amaze.jpeg"
     },
     {
         name: "Chunky Loafer",
         price: "R499.50",
-        imageSrc: "shoe_three.webp"
+        sizes: "7 8",
+        imageSrc: "./public/shoe_three.webp"
     },
     {
         name: "Patant Sandal Heel",
         price: "R888.99",
-        imageSrc: "five.jpg"
+        sizes: "7 8",
+        imageSrc: "./public/five.jpg"
     },
     {
         name: "Spring Urban",
         price: "R785.99",
-        imageSrc: "hope.jpeg"
+        sizes: "4 5",
+        imageSrc: "./public/hope.jpeg"
     },
     {
         name: "Sunmarie Pump",
         price: "R666.79",
-        imageSrc: "shoe_four.jpeg"
+        sizes: "5 6",
+        imageSrc: "./public/shoe_four.jpeg"
     },
     {
         name: "Lady in Red",
         price: "R690.79",
-        imageSrc: "love.jpg"
+        sizes: "5 6",
+        imageSrc: "./public/love.jpg"
     },
     {
         name: "Classic Maryjanes",
         price: "R456.99",
-        imageSrc: "shoe_two.jpg"
+        sizes: "7 8",
+        imageSrc: "./public/shoe_two.jpg"
     },
     {
         name: "Floral boots",
         price: "R799.99",
-        imageSrc: "shoe_eight.jpg"
+        sizes: "4 5",
+        imageSrc: "./public/shoe_eight.jpg"
     },
     {
         name: "Boho Skaters",
         price: "R1000.00",
-        imageSrc: "shoe_seven.jpeg"
+        sizes: "4 5 6 ",
+        imageSrc: "./public/shoe_seven.jpeg"
     },
     {
         name: "Barbie Courts",
         price: "R1000.00",
-        imageSrc: "pp.jpg"
+        sizes: "6 7 8",
+        imageSrc: "./public/pp.jpg"
     },
     {
         name: "Block heel Sandal",
         price: "R199.99",
-        imageSrc: "ddd.jpg"
+        sizes: "5 6 7",
+        imageSrc: "./public/ddd.jpg"
     },
 ];
 
@@ -83,9 +95,34 @@ function createShoeCard(shoe) {
     const price = document.createElement("p");
     price.textContent = shoe.price;
 
+    const sizeOptions = document.createElement("div");
+    sizeOptions.classList.add("size-options");
+
+    shoe.sizes.split(" ").forEach((size) => {
+        const sizeLabel = document.createElement("label");
+        const sizeInput = document.createElement("input");
+        sizeInput.type = "checkbox";
+        sizeInput.value = size;
+        sizeLabel.textContent = size; // Set the label text to the size
+        sizeLabel.appendChild(sizeInput);
+        sizeOptions.appendChild(sizeLabel);
+    });
+
+    const addToCartButton = document.createElement("button");
+    addToCartButton.textContent = "Add to Cart";
+    addToCartButton.addEventListener("click", () => {
+        const selectedSizes = Array.from(sizeOptions.querySelectorAll("input[type=checkbox]:checked")).map(input => input.value);
+        if (selectedSizes.length > 0) {
+            const shoeCopy = { ...shoe }; // Create a copy of the shoe object
+            shoeCopy.selectedSizes = selectedSizes; // Add selected sizes to the shoe object
+            addToCart(shoeCopy);
+        }
+    });
+
     imageDiv.appendChild(image);
     textDiv.appendChild(title);
     textDiv.appendChild(price);
+    textDiv.appendChild(sizeOptions);
     card.appendChild(imageDiv);
     card.appendChild(textDiv);
 
@@ -100,6 +137,8 @@ function createShoeCard(shoe) {
 
     return card;
 }
+
+
 
 // Function to display shoe cards
 function displayShoeCards() {
@@ -138,10 +177,3 @@ function updateCartCount() {
     cartCountElement.textContent = cart.length;
 }
 
-// Call addToCart or removeFromCart when a user interacts with the cart
-// For example, you can add a click event listener to your "Add to Cart" button on each card
-// Example usage:
-// const addToCartButton = document.querySelector('.add-to-cart-button');
-// addToCartButton.addEventListener('click', () => {
-//     addToCart(shoe);
-// });

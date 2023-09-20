@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoe Shopping</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<style>
+    body{
+        background-image: url(background.jpg);
+    }
+</style>
 </head>
 <body>
-
  <!-- Shopping cart navbar -->
  <nav class="cart-navbar">
     <ul>
@@ -19,7 +22,8 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="cart-icon">
-        <i class="fa fa-shopping-cart"></i>
+        <a href="checkout"><i class="fa fa-shopping-cart"></i></a>
+        
         <span class="cart-count">0</span>
     </div>
 </nav>
